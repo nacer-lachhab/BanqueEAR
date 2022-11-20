@@ -1,0 +1,21 @@
+*Type de projet: Entreprise Application Project [EAR]
+
+*composants: banqueEJB [jar; EJB Project]
+	     + coucheWeb_banqueEJB[war; REST WS+ SOAP WS]
+
+*version java: jdk 11
+
+*SGBD: MySQL8
+
+*serveur d'application: wildfly 21.
+
+*drivers : myql-connector-java-8.0.27.jar (mysql dans dossier travail-fait)
+	  [ajouter dans: wildfly-21.0.0.Final\modules\system\layers\base\com]
+
+*ajouter dans fichier standalone.xml de jboss entre <drivers></drivers>:
+	<driver name="mysql" module="com.mysql">
+                <driver-class>com.mysql.cj.jdbc.Driver</driver-class>
+                <xa-datasource-class>com.mysql.cj.jdbc.MysqlXADataSource</xa-datasource-class>
+        </driver>
+
+*client RMI java dans repository: RMI-Client-BanqueEJB (java jdk11).
